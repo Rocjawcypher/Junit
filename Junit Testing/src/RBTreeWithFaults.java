@@ -47,11 +47,13 @@ public class RBTreeWithFaults {
 		node.Black = true;
 		return node;
 	}
-	/**
+	
+	
+	/**SA
 	 * O(1)
 	 * create a null node
 	 * @param parent - the parent of this null node
-	 * @return the null node already connected to its parent
+	 * @return the null node walready connected to its parent
 	 */
 	private RBNode createNullNode(RBNode parent){
 		//create a null node. this node will have the minimum integer value available in java as a key
@@ -60,7 +62,7 @@ public class RBTreeWithFaults {
 		newNode.Black = true;
 		return newNode;
 	}
-	/**
+	/**DC
 	 * O(1)
 	 * public boolean empty()
 	 *
@@ -70,7 +72,7 @@ public class RBTreeWithFaults {
 	public boolean empty() {
 		return isNullNode(this.Root.Left);
 	}
-	/**
+	/**SA
 	 * O(log(n))
 	 * public String search(int k)
 	 *
@@ -93,7 +95,7 @@ public class RBTreeWithFaults {
 		//return the value of the node with the key = k
 		return currNode.Value;
 	}
-	/**
+	/**DC
 	 * O(log(n))
 	 * search for node
 	 * @param k - the key to look for
@@ -133,7 +135,7 @@ public class RBTreeWithFaults {
 		//if the current node key is not bigger and not lower it equals to the key we are looking for
 		return node;
 	}
-	/**
+	/**SA
 	 * O(log(n))
 	 * public int insert(int k, String v)
 	 *
@@ -174,7 +176,7 @@ public class RBTreeWithFaults {
 
 		return counter;	
 	}
-	/**
+	/**DC
 	 * O(log(n))
 	 * keep the red and black rules. this method will be called when the rules were been 
 	 * compromised and needs to be fix.
@@ -244,7 +246,7 @@ public class RBTreeWithFaults {
 
 		return counter;
 	}
-	/**
+	/**SA
 	 * O(1)
 	 * put y as left child for x
 	 * @param x - the parent node
@@ -254,7 +256,7 @@ public class RBTreeWithFaults {
 		x.Left = y;
 		y.Parent = x;
 	}
-	/**
+	/**DC
 	 * O(1)
 	 * put y as right child of x
 	 * @param x - the parent node
@@ -264,7 +266,7 @@ public class RBTreeWithFaults {
 		x.Right = y;
 		y.Parent = x;
 	}
-	/**
+	/**SA
 	 * O(1)
 	 * put y instead of x
 	 * @param x - the original child
@@ -277,7 +279,7 @@ public class RBTreeWithFaults {
 			rightChild(x.Parent,y);
 		}
 	}
-	/**
+	/**DC
 	 * O(1)
 	 * rotate the tree left (according to the principles discussed in class and can be
 	 * found in Book: Cormen - introduction to algorithms
@@ -289,7 +291,7 @@ public class RBTreeWithFaults {
 		rightChild(x,y.Left);
 		leftChild(y,x);
 	}
-	/**
+	/**SA
 	 * O(1)
 	 * rotate the tree right (according to the principles discussed in class and can be
 	 * found in Book: Cormen - introduction to algorithms
@@ -301,7 +303,7 @@ public class RBTreeWithFaults {
 		leftChild(y,x.Right);
 		rightChild(x,y);
 	}
-	/**
+	/**DC
 	 * O(log(n))
 	 * public int delete(int k)
 	 *
@@ -353,7 +355,7 @@ public class RBTreeWithFaults {
 
 		return counter;
 	}
-	/**
+	/**SA
 	 * O(log(n))
 	 * fix the red and black rules after deleting a node.
 	 * @param x - the node to start the fixing from
@@ -441,7 +443,7 @@ public class RBTreeWithFaults {
 
 		return counter;
 	}
-	/**
+	/**DC
 	 *  O(log(n))
 	 * public String min()
 	 *
@@ -452,7 +454,7 @@ public class RBTreeWithFaults {
 	{
 		return minimumNode(this.Root.Left).Value;
 	}
-	/**
+	/**SA
 	 *  O(log(n))
 	 * return the node with the minimal key in the tree
 	 * @param node - the node to start looking from
@@ -470,7 +472,7 @@ public class RBTreeWithFaults {
 
 		return minimumNode(node.Left);
 	}
-	/**
+	/**DC
 	 * O(1)
 	 * check if the given node is an infinity node
 	 * @param node - the node to check
@@ -479,7 +481,7 @@ public class RBTreeWithFaults {
 	private boolean isInfinityNode(RBNode node){
 		return node.Key == Integer.MAX_VALUE;
 	}
-	/**
+	/**SA
 	 * O(1)
 	 * check if the given node is a null node
 	 * @param node - the node to check
@@ -488,7 +490,7 @@ public class RBTreeWithFaults {
 	private static boolean isNullNode(RBNode node){
 		return node.Key == Integer.MIN_VALUE;
 	}
-	/**
+	/**DC
 	 *  O(log(n))
 	 * public String max()
 	 *
@@ -504,7 +506,7 @@ public class RBTreeWithFaults {
 		return maxValue(this.Root.Left);
 
 	}
-	/**
+	/**SA
 	 *  O(log(n))
 	 * Returns the value of the item with the largest key in the tree,
 	 * @param node the node to start looking from
@@ -518,7 +520,7 @@ public class RBTreeWithFaults {
 
 		return maxValue(node.Right);
 	}
-	/**
+	/**DC
 	 *  O(n)
 	 * public int[] keysToArray()
 	 *
@@ -534,7 +536,7 @@ public class RBTreeWithFaults {
 		}
 		return ArrayOfStringsToArrayOfInts(keysString.split(","));              
 	}
-	/**
+	/**SA
 	 * O(strArr length)
 	 * @param strArr - array of string values (that can be parsed into integers)
 	 * @return array of the same values cast as int
@@ -546,7 +548,7 @@ public class RBTreeWithFaults {
 		}
 		return arr;
 	}
-	/**
+	/**DC
 	 * O(n)
 	 * @param node - the node we start from
 	 * @param key - if true returns the string with keys elements else return the string with value elements
@@ -589,7 +591,7 @@ public class RBTreeWithFaults {
 
 		return str;
 	}
-	/**
+	/**SA
 	 * O(n)
 	 * public String[] valuesToArray()
 	 *
@@ -603,7 +605,7 @@ public class RBTreeWithFaults {
 		//valuesString is a string with all the values saperated with ","
 		return valuesString.split(",");
 	}
-	/**
+	/**DC
 	 * O(n)
 	 * print out this RBTree level by level.
 	 */
@@ -625,7 +627,7 @@ public class RBTreeWithFaults {
 			System.out.print('\n');
 		}
 	}
-	/**
+	/**SA
 	 * O(log(n))
 	 * public int size()
 	 *
@@ -642,7 +644,7 @@ public class RBTreeWithFaults {
 
 		return sizeCalc(this.Root.Left);
 	}
-	/**
+	/**DC
 	 * O(log(n))
 	 * @param node the node to start from
 	 * @return the amount of all nodes "under" that node
@@ -665,7 +667,7 @@ public class RBTreeWithFaults {
 
 		return 1;
 	}
-	/**
+	/** Empty
 	 * public class RBNode
 	 *
 	 *	An implementation of a node for the RBTree.
@@ -676,7 +678,7 @@ public class RBTreeWithFaults {
 		private RBNode Left,Right,Parent;
 		private boolean Black;
 
-		/**
+		/**SA
 		 * O(1)
 		 * new node object
 		 * @param value - value of the node
@@ -693,7 +695,7 @@ public class RBTreeWithFaults {
 			this.Parent = parent;
 			this.Black = false;
 		}
-		/**
+		/**DC
 		 * O(1)
 		 * create node with null nodes children
 		 * @param value - the value for the node
