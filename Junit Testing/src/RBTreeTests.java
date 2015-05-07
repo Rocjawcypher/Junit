@@ -48,10 +48,20 @@ public class RBTreeTests {
 	public void leftChildTest(){
 		RBNode A=new RBNode("String",1,null);
 		RBNode B=new RBNode("String",1,null);
-		leftChild(A,B)
+		leftChild(A,B)							// I think this needs a ";"
 		assertEquals(A.Left,B);
 		assertEquals(B.Parent,A);
 	}
+	@Test
+	public void rightChildTest(){
+		RBNode A = new RBNode("String", 1, null);
+		RBNode C = new RBNode("String", 3, null);
+		RBNode J = new RBNode(null, null, null);
+		RBNode x = RBNode(“String”, 2, A, C, J);
+		RBNode y = C;
+		leftChild(x, y);
+//		assertEquals(
+	}// End of rightChildTest() method.
 	@Test
 	public void minimumNodeTestNullNode(){
 		RBNode H=new RBNode ("String", Integer.MIN_VALUE, null,null,null);
