@@ -5,6 +5,10 @@ import java.util.List;
 import org.junit.*;
 import org.junit.runner.*;
 import org.junit.runner.notification.Failure;
+
+import RBTreeWithFaults.RBNode;
+
+
 public class RBTreeTests {
 
 	public static void main(String[] args) {
@@ -24,10 +28,58 @@ public class RBTreeTests {
 		
 	}
 	@Test
-	public void example(){
-		assertEquals(true,true);
+	public void createInfNodeWParamTest(){
+		RBNode result=createInfinityNode(new RBNode("String",1,null));
+		
+		assertEquals(result.Key==Integer.MAX_VALUE,true);
+		assertEquals(result.Left.Parent==result,true);
+		assertEquals(result.Black,true);
 	}
-
+	@Test
+	public void createNullNodeTest(){
+		RBNode A=new RBNode("String",1,null);
+		RBNode result=createNullNode(A);
+		
+		assertEquals(result.Key==Integer.MIN_VALUE,true);
+		assertEquals(result.Parent==A,true);
+		assertEquals(result.Black,true);
+	}
+	@Test
+	public void leftChildTest(){
+		RBNode A=new RBNode("String",1,null);
+		RBNode B=new RBNode("String",1,null);
+		leftChild(A,B)
+		assertEquals(A.Left,B);
+		assertEquals(B.Parent,A);
+	}
+	@Test
+	public void minimumNodeTestNullNode(){
+		RBNode H=new RBNode ("String", Integer.MIN_VALUE, null,null,null);
+		assertEquals(minimumNode(H)==null,true);
+	}
+	@Test
+	public void minimumNodeTestMinNode(){
+		RBNode Y=new RBNode ("String", 9, null,null,null);
+		RBNode H=new RBNode ("String", Integer.MIN_VALUE, null,null,Y);
+		Y.Left=H;
+		assertEquals(minimumNode(Y)==Y,true);
+	}
+	@Test
+	public void minimumNodeTestNotMinNode(){
+		RBNode Z=new RBNode ("String", 10, null,null,null);
+		RBNode Y=new RBNode ("String", 9, null,null,Z);
+		RBNode H=new RBNode ("String", Integer.MIN_VALUE, null,null,Y);
+		Z.Left=Y;
+		Y.Left=H;
+		assertEquals(minimumNode(Z)==Y,true);
+	}
+	@Test
+	public void isNullNode(){
+		RBNode H=new RBNode ("String", Integer.MAX_VALUE, null,null,Y);
+		Z.Left=Y;
+		Y.Left=H;
+		assertEquals(minimumNode(Z)==Y,true);
+	}
 
 }
 /*Steps of project
