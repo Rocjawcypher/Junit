@@ -673,10 +673,10 @@ public class RBTreeWithFaults {
 	 *	An implementation of a node for the RBTree.
 	 */
 	public class RBNode{
-		private String Value;
-		private int Key;
-		private RBNode Left,Right,Parent;
-		private boolean Black;
+		public String Value;
+		public int Key;
+		public RBNode Left,Right,Parent;
+		public boolean Black;
 
 		/**SA
 		 * O(1)
